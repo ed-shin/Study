@@ -90,6 +90,7 @@ public interface TransactionDefinition {
     - REPEATABLE_READ(2): 트랜잭션 내에서 한번 데이터를 읽어오면 다시 읽을때마다 동일한 데이터를 읽음. 데이터를 읽은 상태에서 다른 트랜잭션이 수정은 불가능하나 삽입은 가능. 삽입된 데이터는 읽기도 가능.
     - SERIALIZABLE(3): 가장 비용이 크고 신뢰도 높음 격리 수준. 모든 트랜잭션은 하나씩 차례대로 실행되는 것처럼 처리됨. 유지보수 비용이 크게 발생
 <br>
+
 - PropagationBehavior: 새로운 트랜잭션이 발생할때 처리방법에 대한 옵션
     - REQUIRED: 이미 존재하는 트랜잭션을 지원하고 없으면 새 트랜잭션을 생성
     - SUPPORTS: 존재하는 트랜잭션 지원하고 없으면 nontransactionally
@@ -99,11 +100,13 @@ public interface TransactionDefinition {
     - NEVER: 진행 중인 트랜잭션이 있다면 예외, 항상 비트랜잭션 실행
     - NESTED: 진행 중인 트랜잭션이 있다면 중첩 트랜잭션으로 실행, 없으면 REQUIRED
 <br>
+
 - @Transactional
     - annotation 기반으로 트랜잭션을 관리할 때 적용
     - 기본적으로 스프링은 클래스 내의 각 메서드 실행 전에 트랜잭션이 존재함을 보장
     - 어노테이션을 함수에 넣어 재정의 가능
     - 일반적으로 모든 find 메서드에는 readOnly attribute가 적용되어야 함, 퍼시스턴스 제공자가 read-only 트랜잭션에 대해 일정한 수준으로 최적화를 수행, 예를 들어 하이버네이트는 read-only 상태에서 데이터베이스에서 조회한 관리 대상 인스턴스의 스냅샷을 유지하지 않음
+
 ```java
 @Transactioanl
 public class ModelImpl implements ModelService {
