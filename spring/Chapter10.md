@@ -61,8 +61,8 @@ public String uploadPhoto(@Valid Singer singer, BindingResult result, Model mode
     2. 인메모리 세션 저장소인 SecurityContextHolder에 저장
     3. 사용자에게 session id를 내려줌
     4. 이후 요청부터 cookie에서 JSESSIONID를 확인하여 검증한다.
-![spring-security](./img/spring-security.png)
-![auth-manager](./img/auth-manager.png)
+![spring-security](./img/spring-security.PNG)
+![auth-manager](./img/auth-manager.PNG)
 
 > https://sjh836.tistory.com/165
 
